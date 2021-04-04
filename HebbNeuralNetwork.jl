@@ -69,7 +69,7 @@ module Synaprune
     end
 
     matmul((loss, Xn)) = loss * transpose(Xn)
-    matmul((loss1, Local, Xn)) = loss1 * Local, transpose(Xn)
+    matmul((loss1, Local, Xn)) = loss1 * Local * transpose(Xn)
 
 
     function Update!(b::Last, loss, loss1, learning_rate)
