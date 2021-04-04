@@ -1,7 +1,7 @@
 module Synaprune
 
     using Flux
-    using Flux:softmax, sigmoid, Devarg
+    using Flux:softmax, sigmoid
     using Statistics:mean
 
     abstract type Layers end
