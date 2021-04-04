@@ -68,8 +68,8 @@ module Synaprune
         b.W += learning_rate * w[argmax(abs.(w), dims=3)][:,:]
     end
 
-    matmul((loss, Xn)) = loss * transpose(Xn)
-    matmul((loss1, Local, Xn)) = loss1 * Local * transpose(Xn)
+    matmul(loss, Xn) = loss * transpose(Xn)
+    matmul(loss1, Local, Xn) = loss1 * Local * transpose(Xn)
 
 
     function Update!(b::Last, loss, loss1, learning_rate)
