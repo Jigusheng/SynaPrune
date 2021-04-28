@@ -2,7 +2,7 @@
 
 ## Normalised Hebbian Neural Nets
 
-This is a supervised Hebb net that is based on normalised Hebb Rule.
+This is a supervised Hebb net that is based on Hebb Rule.
 
 Advantages over Backpropagation:
 - Less computationally expensive
