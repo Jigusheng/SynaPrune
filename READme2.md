@@ -21,3 +21,7 @@ error = actual - prediction
 distribution of error among weights = error * significance of weights = error * p(x) * p(y)
 
 new weight = old weight + distribution of error among weights
+
+Similarly, 
+
+new bias = old bias + error * p(y)
