@@ -12,3 +12,5 @@ Advantages over Backpropagation:
 Code for the neural net can be seen in HebbNeuralNetwork.jl
 
 For parallel training of layers, see code in DistributedHebbNet.jl
+
+Code for the algorithm in Python will be up soon.
