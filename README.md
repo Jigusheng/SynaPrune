@@ -4,7 +4,7 @@
 
 This is a supervised Hebb net that is based on Hebb Rule.
 
-Advantages over Backpropagation:
+Advantages over Gradient Descent:
 - Less computationally expensive
 - Less prone to Local Minima Problem
 - Layer-wise weight update
