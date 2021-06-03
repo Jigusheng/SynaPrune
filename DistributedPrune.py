@@ -1,5 +1,5 @@
 import torch
-import nnlib as nn # A module with activation functions 
+import nnlib as nn # A module with activation and loss functions 
 from tqdm import tqdm
 
 class Dense:
