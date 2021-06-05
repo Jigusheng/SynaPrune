@@ -2,6 +2,11 @@ import torch
 import nnlib as nn # A module with activation and loss functions 
 from tqdm import tqdm
 
+
+'''Generalized formula for SynaPrune:
+delta_parameter = global_error * Integral(dy/d(parameter))*dy
+'''
+
 class Dense:
     def __init__(self, In, out, f=nn.linear):
         self.In, self.out, self.f = In, out, f
