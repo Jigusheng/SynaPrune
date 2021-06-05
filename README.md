@@ -1,6 +1,6 @@
 # HebbProject
 
-## Normalised Hebbian Neural Nets
+## SynaPrune
 
 This is a supervised Hebb net that is based on Hebb Rule.
 
