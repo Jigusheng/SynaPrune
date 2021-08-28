@@ -15,6 +15,8 @@ For parallel training of layers, see code in DistributedHebbNet.jl
 
 Code for the algorithm in Python is in DistributedPrune.py.
 
-New Features Updated!
-Sequential training of neural networks, with reduced catastrophic forgetting.
+## New Features Updated!
+
+Sequential training of neural networks with reduced catastrophic forgetting.
+
 Code is in SynaPrune_experimental.py
