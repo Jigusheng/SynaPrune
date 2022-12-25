@@ -38,4 +38,4 @@ One basic assumption in this algorithm:
  new W = old W + $\alpha$·loss·significance(weights)     
  new B = old B + $\alpha$·loss·significance(bias)
  
- Note: The above algorithm posted here is only a brief one. For the complete algorithm, please see code in 
+ Note: The above algorithm posted here is only a brief one. For the complete algorithm, please see code in StochasticPruneOptimizer.py
