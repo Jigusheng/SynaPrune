@@ -1,7 +1,7 @@
-# SynaPrune: A gradient-free algorithm to train neural networks
+# SynaPrune: A novel algorithm to train neural networks based on work done
 
 ## Abstract:
-Gradient-based optimization algorithms and has been the most dominating and prevalent ways to optimize and train neural networks. This particularly seen in gradient descent, Stochastic Gradient Descent(SGD), Mini-Batch gradient descent, and many more variations. However, gradient-based optimizations stands several disadvantages. This includes local minima problem, vanishing and exploding gradients, being computationally expensive, and unable to parallelize the updation of parameters in each layer (layer-wise updation), and also biologically implausible. Thus, we propose SynaPrune, a gradient-free optimization algorithm to train neural networks that is able to carry out layer-wise updation, and also biologically plausible while achieving state-of-the-art results. 
+Gradient-based optimization algorithms and has been the most dominating and prevalent ways to optimize and train neural networks. This particularly seen in gradient descent, Stochastic Gradient Descent(SGD), Mini-Batch gradient descent, and many more variations. However, gradient-based optimizations stands several disadvantages. This includes local minima problem, vanishing and exploding gradients, being computationally expensive, and unable to parallelize the updation of parameters in each layer (layer-wise updation). Thus, we propose SynaPrune, a gradient-free optimization algorithm to train neural networks that is able to carry out layer-wise updation, while achieving state-of-the-art results. 
 
 ## SynaPrune:
 
