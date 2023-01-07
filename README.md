@@ -1,41 +1,18 @@
-# SynaPrune: A novel algorithm to train neural networks based on work done
+# SynaPrune: A novel algorithm to train neural networks
 
 ## Abstract:
-Gradient-based optimization algorithms and has been the most dominating and prevalent ways to optimize and train neural networks. This particularly seen in gradient descent, Stochastic Gradient Descent(SGD), Mini-Batch gradient descent, and many more variations. However, gradient-based optimizations stands several disadvantages. This includes local minima problem, vanishing and exploding gradients, being computationally expensive, and unable to parallelize the updation of parameters in each layer (layer-wise updation). Thus, we propose SynaPrune, a gradient-free optimization algorithm to train neural networks that is able to carry out layer-wise updation, while achieving state-of-the-art results. 
+Gradient-based optimization algorithms and has been the most dominating and prevalent ways to optimize and train neural networks. This particularly seen in gradient descent, Stochastic Gradient Descent(SGD), Mini-Batch gradient descent, and many more variations. However, gradient-based optimizations stands several disadvantages, in particular, the local minima problem. Thus, we would like to propose a novel way to train neural networks to reduce and even solve local minima problem in feedforward networks
 
-## SynaPrune:
+## Local minima Problem: the causes
 
-One basic assumption in this algorithm:
- * In a feedforward neural network, the neural network can be decomposed into its different layers of different functions.
- * We also suppose that the different functions(or layers) contribute equally to the total error of the neural network.
- 
- 
- Suppose 2 neurons connected in a feedforward manner shown below. 
- 
- ![image](https://user-images.githubusercontent.com/81908664/209458911-bae47226-faa9-4252-9d9a-93c48bf23a9e.png)
- where f(x) is the activation function and W, B are weights and biases respectively.
- 
- A simple loss function can be defined as:
- ### loss = actual - pred
- where pred is the f(X·W + B)
- 
- We then adjust the weights and biases with respect to their contribution to the loss respectively. This can be done by calculating the work done by each parameter to the output, then normalizing them to give the significance of the parameters to be multipled directly by the loss function.
- 
- The work done expression is given by:
- $$\int Force \ d(displacement)$$ 
- While in the above feedforward network, the work done by weights can be perceived by:
- $$\int X \ d(Y) = XY + C$$ 
- where the force is substituted by X and displacement is substituted by Y and C can be dropped off.
- Similarly, for bias,
- $$\int 1 \ d(Y) = Y + C$$
- where force is substituted by 1 since partial derivative with respect to B is 1 in Y = X·W + B .
- 
- Then we calculate the significance of each parameter by normalizing them:     
- significance(weights) = Norm(X)·Norm(Y)     
- significance(bias) = Norm(Y)
- 
- The new parameters are updated as follows:     
- new W = old W + $\alpha$·loss·significance(weights)     
- new B = old B + $\alpha$·loss·significance(bias)
- 
- Note: The above algorithm posted here is only a brief one. For the complete algorithm, please see code in StochasticPruneOptimizer.py
+Local minima problem turns out to be quite of a significant problem in deep learning, where parameters stop updating but loss has still not converged to its lowest possible value. Intuitively speaking, the local minima problem occurs where 
+$$\frac{\partial loss}{\partial \theta_j} = 0$$ where j denotes the gradient with respect to loss for the whole dataset.     
+We say that the neural network has converged to a stationary point and gets stuck in a suboptimal solution.   
+Mathematically, we can take a closer look in the process of updation of parameters and realise that for a feedforward neural network, it can be described as follows:    
+$$\frac{\partial loss}{\partial \theta_n} = \sum_{p=1}^{q} \frac{\partial loss}{\partial y_p} * \frac{\partial y_p}{\partial \theta_n}$$
+where n denotes the nth training example, and p denotes the pth output neuron in a particular layer.
+$$\frac{\partial loss}{\partial \theta_j} = \frac{1}{n} \sum_{i=1}^{n} \frac{\partial loss}{\partial \theta_i}$$
+where n denotes the n number of training examples fed into the network and backpropagated in a vanilla batch gradient descent.
+This gives rise to a possible situation where $\frac{\partial loss}{\partial \theta_j} = 0$ despite individual intermediate $\frac{\partial loss}{\partial \theta_i}$ being non-zero but have both positive and negative values to cancel each other out.    
+
+In whole, local minima problems stands due to summation of individual intermediate gradients which could cancel each other out and result in summation equal to zero hence gradients to be updated.
