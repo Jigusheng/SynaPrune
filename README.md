@@ -20,10 +20,4 @@ In whole, local minima problems stands due to summation of individual intermedia
 ## Prevention ways
 
 1. Penalty and regularisation techniques. By imposing a penalty function that penalizes the $\frac{\partial loss}{\partial y}$ in the neural network, and also stabilizing the weights to prevent them from getting too small due to penalty function, we would be able to continue update the parameters even though $\frac{\partial loss}{\partial y} = 0$ with respect to reconstruction loss.
-Limitation: Nevertheless, it still has the probability to get stuck in local minima if penalty loss gradients cancel each other out. Hence, it is to be used with suitable activation functions such as Relu, Elu, etc. to overcome small local minimas.
-2. Adding Noise to weights. By adding an amount of noise proportional to the magnitude of weights, we could prevent the total cancellation of intemediate gradients, thus preventing being trapped in local minima. However, in most situations, it could just be hovering inside local minimas, rather than overcoming it.
-3. A new backpropgation method. Since local minima problem stems from summation hence cancellation of intermediate gradients, it may be wiser to use root-mean-square as a better representation of loss gradient with respect to $\theta$ for the whole dataset. (Still experimenting...)
-
-Final confirmation:
-A Loss update with Devarg function to completely eliminate local minima problem when the model is trained on only a single data, but still could suffer from vanishing gradient problem and not update as much if chosen activation functions like Sigmoid, Tanh.
-For the whole dataset, instead of averaging the individual loss gradients wrt parameters throughout whole dataset,
+Limitation: Nevertheless, it still has the probability to get stuck in local minima if penalty loss gradients cancel each other out. Hence, it is to be used with suitable activation functions such as Relu, Elu, etc.  and also optimizers such as Momentum and ADAM to overcome small local minimas.
